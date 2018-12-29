@@ -9,9 +9,9 @@
 
 <body style="margin:0px; overflow:hidden;">
     <!-- A-Frame ライブラリの読み込み -->
-    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
     <!-- AR.js ライブラリの読み込み -->
-    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
 
     <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIを非表示） -->
     <a-scene embedded arjs="debugUIEnabled:false;">
@@ -24,19 +24,13 @@
             <!-- mtlファイル -->
         </a-assets>
 
-        <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
-        <a-marker preset="hiro">
-            <!-- マーカーの場所に箱を置く（見やすいようにワイヤーフレーム表示） -->
-            <a-box position="0 0.5 0" wireframe="true"></a-box>
-        </a-marker>
+        <a-marker preset='custom' type='pattern' url="marker/2019-iti-marker.patt">
+            <a-text value="Happy New Year!\n2019" position=" 0 0 1" align="center" rotation="-90 0 0" color="#DD4827">
+            </a-text>
 
-        <!-- マーカーを登録（プリセットされている「kanji」マーカー） -->
-        <a-marker preset="kanji">
-            <!-- マーカーの場所に OBJ 形式の 3DCG を置く -->
-            <a-obj-model src="#obj" mtl="#mtl" scale="0.005 0.005 0.005" position="0 0.5 0">
-                <a-animation attribute="rotation" to="0 360 0" dur="3000" easing="linear" repeat="indefinite">
-                </a-animation>
-            </a-obj-model>
+            <a-entity gltf-model="#dog" play-all-model-animations="" position="0 0 0" rotation="0 0 0" scale="0.0025 0.001 0.001" visible="true">
+                <a-animation attribute="rotation" repeat="indefinite" direction="alternate" dur="500" from="0 0 0" to="10 0 0"></a-animation>
+            </a-entity>
         </a-marker>
 
         <!-- AR用のカメラを置く -->
