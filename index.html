@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AR年賀状</title>
+    <!-- A-Frame -->
+    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <!-- AR.js -->
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+    <style>
+        canvas {
+            width: 100%;
+            height: 100%
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/91/three.min.js"></script>
+    <!-- A-Frame の VR空間に AR.js を紐づける -->
+    <a-scene embedded arjs="debugUIEnabled:false;">
+        <!-- マーカーを登録（デフォルトで設定されている「hiro」マーカー） -->
+        <a-marker preset="hiro">
+            <!-- マーカーの場所に立方体を置く -->
+            <a-box position="-2 0.5 0" wireframe="true"></a-box>
+        </a-marker>
+
+        <a-entity camera cursor-visible="true" cursor-scale="2" cursor-color="#ff0000" cursor-opacity="0.5"></a-entity>
+
+    </a-scene>
+</body>
+</html>
