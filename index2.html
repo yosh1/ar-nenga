@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>あけましておめでとうございます！</title>
+
+    <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+    <script src="js/aframe-ar.js"></script>
+
+</head>
+
+<body>
+
+    <a-scene embedded arjs="debugUIEnabled:false; sourceType: webcam;" vr-mode-ui="enabled: false">
+        <a-assets>
+            <a-asset-item id="dog" src="models/Dog.glb"></a-asset-item>
+        </a-assets>
+
+        <a-marker preset='custom' type='pattern' url="https://www.yoshi1125hisa.com/marker/2019-iti-marker.patt">
+            <a-text value="Happy New Year!\n2019" position=" 0 0 1" align="center" rotation="-90 0 0" color="#DD4827">
+            </a-text>
+
+            <a-entity gltf-model="#dog" play-all-model-animations="" position="0 0 0" rotation="0 0 0" scale="0.0025 0.001 0.001" visible="true">
+                <a-animation attribute="rotation" repeat="indefinite" direction="alternate" dur="500" from="0 0 0" to="10 0 0"></a-animation>
+            </a-entity>
+        </a-marker>
+
+        <a-entity camera></a-entity>
+
+    </a-scene>
+</body>
+
+</html>
