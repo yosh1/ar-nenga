@@ -6,6 +6,7 @@
 
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.min.js"></script>
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
@@ -14,6 +15,11 @@
     <a-scene embedded arjs="debugUIEnabled:false; sourceType: webcam;" vr-mode-ui="enabled: false">
         <a-assets>
             <a-asset-item id="inoshishi" src="inoshishi.glb"></a-asset-item>
+            <a-asset-item id="obj" src="inoshishi.obj"></a-asset-item>
+            <!-- objファイル -->
+            <a-asset-item id="mtl" src="materials.mtl" s></a-asset-item>
+            <!-- mtlファイル -->
+
         </a-assets>
 
         <a-marker preset='custom' type='pattern' url="pattern-marker.patt">
@@ -21,6 +27,10 @@
             </a-entity>
             <a-text value="2019\nHappy New Year!!!" position=" 0 0 -0.1" align="center" rotation="-90 0 0" color="#ff0000">
             </a-text>
+            <a-obj-model src="#obj" mtl="#mtl" scale="0.005 0.005 0.005" position="0 0.5 0">
+                <a-animation attribute="rotation" to="0 360 0" dur="3000" easing="linear" repeat="indefinite">
+                </a-animation>
+            </a-obj-model>
 
 
         </a-marker>
