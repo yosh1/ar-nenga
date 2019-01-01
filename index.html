@@ -12,22 +12,33 @@
 
 <body>
 
-    <a-scene embedded arjs="debugUIEnabled:false; sourceType: webcam;" vr-mode-ui="enabled: false">
-        <a-assets>
-            <a-asset-item id="dog" src="models/Inoshishi.glb"></a-asset-item>
-        </a-assets>
 
-        <a-marker preset='custom' type='pattern' url="marker/2019-iti-marker.patt">
-            <a-text value="Happy New Year!\n2019" position=" 0 0 1" align="center" rotation="-90 0 0" color="#DD4827">
-            </a-text>
+    <a-assets>
+        <a-asset-item id="inoshishi_mtl" src="models/Inoshishi.mtl"></a-asset-item>
+        <a-asset-item id="inoshishi_obj" src="models/Inoshishi.obj"></a-asset-item>
+    </a-assets>
 
-            <a-entity gltf-model="#dog" play-all-model-animations="" position="0 0 0" rotation="0 0 0" scale="0.0025 0.001 0.001" visible="true">
-                <a-animation attribute="rotation" repeat="indefinite" direction="alternate" dur="500" from="0 0 0" to="10 0 0"></a-animation>
+    <!-- ARオブジェクトを描画するシーンの定義 -->
+    <a-scene stats embedded arjs='debugUIEnabled: false; sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180'>
+        <!-- ARマーカに対する描画オブジェクト -->
+        <a-marker preset="custom" type="pattern" url="marker/pattern-marker.patt">
+            <!-- オブジェクト1つめの配置 -->
+            <a-obj-model src="#signpanel_obj" mtl="#signpanel_mtl" position="0 0 0" rotation="-100 0 0" scale="0.05 0.05 0.05" visible="true"></a-obj-model>
+
+            <!-- a-entityタグでオブジェクトやアニメーションの定義をまとめる -->
+            <a-entity>
+                <a-obj-model src="#inoshishi_obj" mtl="#inoshishi_mtl" position="-0.3 0 0" rotation="-90 0 0" scale="0.03 0.03 0.03" visible="true"></a-obj-model>
+                <!-- アニメーションもHTMLタグで定義可能 -->
+                <a-animation attribute="rotation" dur="5000" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
             </a-entity>
+
+            <!-- テキストも描画可能 -->
+            <a-text value="Happy" position='-0.8 1.9 -0.1' rotation="0 0 0" scale="1.5 1.5 1.5" color="#111111"></a-text>
+            <a-text value="New Year" position='-0.3 1.3 -0.1' rotation="0 0 0" scale="1.5 1.5 1.5" color="#111111"></a-text>
         </a-marker>
 
-        <a-entity camera></a-entity>
-
+        <!-- カメラオブジェクトの配置 -->
+        <a-camera-static/>
     </a-scene>
 </body>
 
