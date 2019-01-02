@@ -1,4 +1,4 @@
-# Web AR
+# New Year's card by Web AR　
 
 This is New Year's card using Web AR.
 
