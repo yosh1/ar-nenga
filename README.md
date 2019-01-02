@@ -1,6 +1,6 @@
 # Web AR
 
-This is a Web AR application using AR.js.
+This is New Year's card using Web AR.
 
 ---
 
