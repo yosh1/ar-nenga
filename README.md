@@ -1,6 +1,6 @@
 # New Year's card by Web AR　
 
-This is New Year's card using Web AR.
+This is New Year's card using Web AR (AR.js and Three.js).
 
 ---
 
